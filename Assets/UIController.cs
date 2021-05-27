@@ -17,7 +17,7 @@ public class UIController : MonoBehaviour
     private float len = 0;
 
     //走る速度
-    private float speed = 5f;
+    private float speed = 2f;
 
     //ゲームオーバーの判定
     private bool isGameOver = false;

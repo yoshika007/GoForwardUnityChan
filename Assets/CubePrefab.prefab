@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f712ce83c084824a4e98dcc7e305ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeSE: {fileID: 8300000, guid: 17bf6ac7b907142939cadf1736fc8d86, type: 3}
+  cubeSE: {fileID: 8300000, guid: 4266738b197d1468e8751e6aeece80b5, type: 3}
 --- !u!82 &2272425100799653827
 AudioSource:
   m_ObjectHideFlags: 0
