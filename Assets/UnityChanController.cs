@@ -23,14 +23,10 @@ public class UnityChanController : MonoBehaviour
     //ゲームオーバーになる位置
     private float deadLine = -70;
 
-    public AudioClip jumpSE1;
-    public AudioClip jumpSE2;
-    public AudioClip jumpSE3;
-    public AudioClip jumpSE4;
+    public AudioClip[] jumpSE;
+    public AudioClip[] deadSE;
 
-    public AudioClip deadSE1;
-    public AudioClip deadSE2;
-    public AudioClip deadSE3;
+
     private AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -61,24 +57,8 @@ public class UnityChanController : MonoBehaviour
             //上方向の力をかける
             this.rigid2D.velocity = new Vector2 (0, this.jumpVelocity);
 
-            int num1 = Random.Range(1, 5);
-
-            if (num1 == 1)
-            {
-                audioSource.PlayOneShot(jumpSE1);
-            }
-            else if (num1 == 2)
-            {
-                audioSource.PlayOneShot(jumpSE2);
-            }
-            else if (num1 == 3)
-            {
-                audioSource.PlayOneShot(jumpSE3);
-            }
-            else
-            {
-                audioSource.PlayOneShot(jumpSE4);
-            }
+            int jumpIndex = Random.Range(0, jumpSE.Length);
+            audioSource.PlayOneShot(jumpSE[jumpIndex]);
 
         }
 
@@ -95,8 +75,8 @@ public class UnityChanController : MonoBehaviour
         if (transform.position.y < this.deadLine)
         {
             
-            // ユニティちゃんを破棄する
-            Destroy(gameObject);
+        
+            this.gameObject.SetActive(false);
         }
 
     }
@@ -105,28 +85,14 @@ public class UnityChanController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-
         if (other.gameObject.tag == "outarea")
         {
 
             //UIControllerのGameOver関数を呼び出して画面上に「GameOver」と表示する
             GameObject.Find("Canvas").GetComponent<UIController>().GameOver();
 
-
-            int num2 = Random.Range(1, 4);
-
-            if(num2 == 1)
-            {
-                audioSource.PlayOneShot(deadSE1);
-            }
-            else if (num2 == 2)
-            {
-                audioSource.PlayOneShot(deadSE2);
-            }
-            else
-            {
-                audioSource.PlayOneShot(deadSE3);
-            }
+            int deadIndex = Random.Range(0, deadSE.Length);
+            audioSource.PlayOneShot(deadSE[deadIndex]);
 
         }
 

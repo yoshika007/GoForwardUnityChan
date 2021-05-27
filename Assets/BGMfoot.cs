@@ -16,6 +16,7 @@ public class BGMfoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (unitychan.transform.position.y < -3.7  || - 3.4 < unitychan.transform.position.y )
         {
             GetComponent<AudioSource>().volume = 0;

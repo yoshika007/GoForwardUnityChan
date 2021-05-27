@@ -16,7 +16,7 @@ public class BGM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (unitychan.transform.position.x < -10)
+        if (unitychan != null && unitychan.transform.position.x < -10)
         {
             GetComponent<AudioSource>().volume = 0;
         }
